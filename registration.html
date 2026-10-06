@@ -1,0 +1,1301 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>GrowItPlay | Turf Booking</title>
+
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    /* =====================================================
+       BODY
+    ====================================================== */
+
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      padding: 30px 20px;
+
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.65),
+          rgba(0, 0, 0, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1920&q=80");
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-attachment: fixed;
+
+      color: white;
+    }
+
+
+    /* =====================================================
+       MAIN CONTAINER
+    ====================================================== */
+
+    .container {
+
+      width: 100%;
+
+      max-width: 900px;
+
+      min-height: 560px;
+
+      display: flex;
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      background:
+        rgba(255,255,255,0.12);
+
+      backdrop-filter: blur(15px);
+
+      -webkit-backdrop-filter: blur(15px);
+
+      border:
+        1px solid rgba(255,255,255,0.25);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.5);
+    }
+
+
+    /* =====================================================
+       LEFT SIDE
+    ====================================================== */
+
+    .left {
+
+      width: 50%;
+
+      padding: 55px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.25),
+          rgba(0,0,0,0.55)
+        ),
+        url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80");
+
+      background-size: cover;
+
+      background-position: center;
+    }
+
+
+    /* =====================================================
+       LOGO
+    ====================================================== */
+
+    .logo {
+
+      font-size: clamp(36px, 5vw, 45px);
+
+      font-weight: bold;
+
+      color: #39ff88;
+
+      margin-bottom: 8px;
+
+      letter-spacing: 1px;
+    }
+
+
+    /* =====================================================
+       TAGLINE
+    ====================================================== */
+
+    .tagline {
+
+      font-size: 19px;
+
+      color: white;
+
+      margin-bottom: 25px;
+
+      line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+    ====================================================== */
+
+    .description {
+
+      line-height: 1.7;
+
+      color: #eeeeee;
+
+      font-size: 15px;
+
+      max-width: 430px;
+    }
+
+
+    /* =====================================================
+       SPORTS
+    ====================================================== */
+
+    .sports {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+
+    .sport {
+
+      width: 70px;
+
+      height: 70px;
+
+      border-radius: 15px;
+
+      overflow: hidden;
+
+      border:
+        2px solid rgba(255,255,255,0.6);
+
+      transition: 0.3s;
+
+      flex-shrink: 0;
+    }
+
+
+    .sport:hover {
+
+      transform:
+        translateY(-7px)
+        scale(1.05);
+    }
+
+
+    .sport img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+
+    /* =====================================================
+       RIGHT SIDE
+    ====================================================== */
+
+    .right {
+
+      width: 50%;
+
+      padding: 50px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background:
+        rgba(0,0,0,0.45);
+    }
+
+
+    .form-box {
+
+      width: 100%;
+
+      max-width: 340px;
+    }
+
+
+    /* =====================================================
+       SMALL LOGO
+    ====================================================== */
+
+    .small-logo {
+
+      text-align: center;
+
+      font-size: 28px;
+
+      font-weight: bold;
+
+      color: #39ff88;
+
+      margin-bottom: 20px;
+    }
+
+
+    /* =====================================================
+       HEADINGS
+    ====================================================== */
+
+    h2 {
+
+      text-align: center;
+
+      font-size: 28px;
+
+      margin:
+
+        0 0 25px 0;
+
+      line-height: 1.3;
+    }
+
+
+    /* =====================================================
+       PARAGRAPH
+    ====================================================== */
+
+    p {
+
+      text-align: center;
+
+      color: #dddddd;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+
+      margin-bottom: 15px;
+    }
+
+
+    /* =====================================================
+       INPUT
+    ====================================================== */
+
+    input {
+
+      width: 100%;
+
+      padding: 14px 15px;
+
+      margin: 8px 0;
+
+      border:
+        1px solid rgba(255,255,255,0.25);
+
+      border-radius: 10px;
+
+      outline: none;
+
+      background:
+        rgba(255,255,255,0.12);
+
+      color: white;
+
+      font-size: 16px;
+
+      transition: 0.3s;
+
+      min-height: 48px;
+    }
+
+
+    input::placeholder {
+
+      color: #cccccc;
+    }
+
+
+    input:focus {
+
+      border-color:
+        #39ff88;
+
+      box-shadow:
+        0 0 10px
+        rgba(57,255,136,0.3);
+    }
+
+
+    /* =====================================================
+       BUTTON
+    ====================================================== */
+
+    button {
+
+      width: 100%;
+
+      padding: 14px;
+
+      margin-top: 15px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background:
+        #39ff88;
+
+      color:
+        #06200f;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+      min-height: 48px;
+
+      touch-action: manipulation;
+    }
+
+
+    button:hover {
+
+      background:
+        #20e66d;
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(57,255,136,0.35);
+    }
+
+
+    /* =====================================================
+       LINKS
+    ====================================================== */
+
+    .link {
+
+      color:
+        #39ff88;
+
+      cursor:
+        pointer;
+
+      display:
+        block;
+
+      text-align:
+        center;
+
+      margin-top:
+        15px;
+
+      font-size:
+        14px;
+
+      line-height:
+        1.5;
+
+      padding:
+        2px 0;
+
+      touch-action:
+        manipulation;
+    }
+
+
+    .link:hover {
+
+      text-decoration:
+        underline;
+    }
+
+
+    /* =====================================================
+       FORMS
+    ====================================================== */
+
+    .form {
+
+      display:
+        none;
+    }
+
+
+    #login {
+
+      display:
+        block;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    .footer {
+
+      position:
+        fixed;
+
+      bottom:
+        12px;
+
+      left:
+        0;
+
+      width:
+        100%;
+
+      text-align:
+        center;
+
+      color:
+        #dddddd;
+
+      font-size:
+        12px;
+
+      padding:
+        0 10px;
+    }
+
+
+    /* =====================================================
+       TABLET
+       751px - 1000px
+    ====================================================== */
+
+    @media (max-width: 1000px) {
+
+      body {
+
+        padding:
+          25px 15px;
+      }
+
+
+      .container {
+
+        max-width:
+          850px;
+      }
+
+
+      .left {
+
+        padding:
+          45px;
+      }
+
+
+      .right {
+
+        padding:
+          40px;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       750px AND BELOW
+    ====================================================== */
+
+    @media (max-width: 750px) {
+
+      body {
+
+        min-height:
+          100vh;
+
+        padding:
+          15px;
+
+        align-items:
+          flex-start;
+
+        background-attachment:
+          scroll;
+      }
+
+
+      /* CONTAINER */
+
+      .container {
+
+        width:
+          100%;
+
+        max-width:
+          520px;
+
+        min-height:
+          auto;
+
+        flex-direction:
+          column;
+
+        border-radius:
+          20px;
+
+        margin-bottom:
+          45px;
+      }
+
+
+      /* LEFT */
+
+      .left {
+
+        width:
+          100%;
+
+        padding:
+          35px 25px;
+
+        text-align:
+          center;
+
+        align-items:
+          center;
+      }
+
+
+      .logo {
+
+        font-size:
+          36px;
+      }
+
+
+      .tagline {
+
+        font-size:
+          18px;
+
+        margin-bottom:
+          18px;
+      }
+
+
+      .description {
+
+        max-width:
+          100%;
+
+        font-size:
+          15px;
+
+        line-height:
+          1.6;
+      }
+
+
+      /* SPORTS */
+
+      .sports {
+
+        width:
+          100%;
+
+        justify-content:
+          center;
+
+        gap:
+          10px;
+
+        margin-top:
+          25px;
+      }
+
+
+      .sport {
+
+        width:
+          58px;
+
+        height:
+          58px;
+
+        border-radius:
+          12px;
+      }
+
+
+      /* RIGHT */
+
+      .right {
+
+        width:
+          100%;
+
+        padding:
+          35px 25px;
+
+        align-items:
+          center;
+      }
+
+
+      .form-box {
+
+        width:
+          100%;
+
+        max-width:
+          400px;
+      }
+
+
+      .small-logo {
+
+        font-size:
+          25px;
+
+        margin-bottom:
+          18px;
+      }
+
+
+      h2 {
+
+        font-size:
+          24px;
+
+        margin-bottom:
+          22px;
+      }
+
+
+      input {
+
+        padding:
+          14px;
+
+        font-size:
+          16px;
+      }
+
+
+      button {
+
+        padding:
+          14px;
+
+        font-size:
+          16px;
+      }
+
+
+      .link {
+
+        font-size:
+          13px;
+
+        margin-top:
+          15px;
+      }
+
+
+      /* FOOTER */
+
+      .footer {
+
+        position:
+          relative;
+
+        bottom:
+          auto;
+
+        margin-top:
+          -30px;
+
+        font-size:
+          11px;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+       400px AND BELOW
+    ====================================================== */
+
+    @media (max-width: 400px) {
+
+      body {
+
+        padding:
+          10px;
+      }
+
+
+      .container {
+
+        border-radius:
+          17px;
+
+        margin-bottom:
+          40px;
+      }
+
+
+      .left {
+
+        padding:
+          28px 18px;
+      }
+
+
+      .logo {
+
+        font-size:
+          31px;
+      }
+
+
+      .tagline {
+
+        font-size:
+          16px;
+
+        margin-bottom:
+          15px;
+      }
+
+
+      .description {
+
+        font-size:
+          14px;
+      }
+
+
+      .sports {
+
+        gap:
+          7px;
+
+        margin-top:
+          22px;
+      }
+
+
+      .sport {
+
+        width:
+          55px;
+
+        height:
+          55px;
+      }
+
+
+      .right {
+
+        padding:
+          28px 18px;
+      }
+
+
+      .small-logo {
+
+        font-size:
+          23px;
+
+        margin-bottom:
+          15px;
+      }
+
+
+      h2 {
+
+        font-size:
+          21px;
+
+        margin-bottom:
+          20px;
+      }
+
+
+      input {
+
+        padding:
+          13px;
+
+        min-height:
+          46px;
+
+        font-size:
+          15px;
+      }
+
+
+      button {
+
+        padding:
+          13px;
+
+        min-height:
+          46px;
+
+        font-size:
+          15px;
+      }
+
+
+      .link {
+
+        font-size:
+          12px;
+
+        margin-top:
+          13px;
+      }
+
+
+      p {
+
+        font-size:
+          13px;
+      }
+
+
+      .footer {
+
+        font-size:
+          10px;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE LANDSCAPE
+    ====================================================== */
+
+    @media (max-height: 600px) and (max-width: 750px) {
+
+      body {
+
+        align-items:
+          flex-start;
+
+        padding-top:
+          10px;
+      }
+
+
+      .left {
+
+        padding:
+          25px 20px;
+      }
+
+
+      .right {
+
+        padding:
+          25px 20px;
+      }
+
+
+      .sports {
+
+        margin-top:
+          18px;
+      }
+
+
+      .sport {
+
+        width:
+          50px;
+
+        height:
+          50px;
+      }
+
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       MAIN CONTAINER
+  ====================================================== -->
+
+  <div class="container">
+
+
+    <!-- ===================================================
+         LEFT SIDE
+    ==================================================== -->
+
+    <div class="left">
+
+
+      <div class="logo">
+        GrowItPlay
+      </div>
+
+
+      <div class="tagline">
+        Book Your Turf. Play Your Game.
+      </div>
+
+
+      <div class="description">
+
+        Find the perfect turf for your game.
+        Book your favorite sports venue easily
+        and enjoy every moment with your friends.
+
+      </div>
+
+
+      <!-- SPORTS IMAGES -->
+
+      <div class="sports">
+
+
+        <div class="sport">
+
+          <img
+            src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=300&q=80"
+            alt="Football">
+
+        </div>
+
+
+        <div class="sport">
+
+          <img
+            src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=300&q=80"
+            alt="Cricket">
+
+        </div>
+
+
+        <div class="sport">
+
+          <img
+            src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=300&q=80"
+            alt="Badminton">
+
+        </div>
+
+
+        <div class="sport">
+
+          <img
+            src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=300&q=80"
+            alt="Sports">
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         RIGHT SIDE
+    ==================================================== -->
+
+    <div class="right">
+
+
+      <div class="form-box">
+
+
+        <!-- SMALL LOGO -->
+
+        <div class="small-logo">
+          GrowItPlay
+        </div>
+
+
+        <!-- =================================================
+             LOGIN
+        ================================================== -->
+
+        <div id="login" class="form">
+
+          <h2>
+            Welcome Back! 👋
+          </h2>
+
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            autocomplete="email">
+
+
+          <input
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password">
+
+
+          <button>
+            Login
+          </button>
+
+
+          <span
+            class="link"
+            onclick="show('forgot')">
+
+            Forgot Password?
+
+          </span>
+
+
+          <span
+            class="link"
+            onclick="show('register')">
+
+            Don't have an account?
+            Register
+
+          </span>
+
+        </div>
+
+
+        <!-- =================================================
+             REGISTER
+        ================================================== -->
+
+        <div id="register" class="form">
+
+          <h2>
+            Create Account 🚀
+          </h2>
+
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            autocomplete="name">
+
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            autocomplete="email">
+
+
+          <input
+            type="password"
+            placeholder="Create Password"
+            autocomplete="new-password">
+
+
+          <button>
+            Register
+          </button>
+
+
+          <span
+            class="link"
+            onclick="show('login')">
+
+            Already have an account?
+            Login
+
+          </span>
+
+        </div>
+
+
+        <!-- =================================================
+             FORGOT PASSWORD
+        ================================================== -->
+
+        <div id="forgot" class="form">
+
+          <h2>
+            Forgot Password 🔐
+          </h2>
+
+
+          <p>
+
+            Enter your email address and
+            we'll help you reset your password.
+
+          </p>
+
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+            autocomplete="email">
+
+
+          <button
+            onclick="show('reset')">
+
+            Send Reset Link
+
+          </button>
+
+
+          <span
+            class="link"
+            onclick="show('login')">
+
+            ← Back to Login
+
+          </span>
+
+        </div>
+
+
+        <!-- =================================================
+             RESET PASSWORD
+        ================================================== -->
+
+        <div id="reset" class="form">
+
+          <h2>
+            Reset Password 🔑
+          </h2>
+
+
+          <input
+            type="password"
+            placeholder="New Password"
+            autocomplete="new-password">
+
+
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            autocomplete="new-password">
+
+
+          <button
+            onclick="show('login')">
+
+            Reset Password
+
+          </button>
+
+
+          <span
+            class="link"
+            onclick="show('login')">
+
+            ← Back to Login
+
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <div class="footer">
+
+    © 2026 GrowItPlay | Turf Booking Platform
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    function show(page) {
+
+      document
+        .querySelectorAll(".form")
+        .forEach(function(form) {
+
+          form.style.display = "none";
+
+        });
+
+
+      document
+        .getElementById(page)
+        .style.display = "block";
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
+```
